@@ -1,0 +1,14 @@
+name: Deploy to Zeebe
+description: Deploy BPMN workflows to a Zeebe instance
+inputs:
+  workflowPath:
+    description: Path to a valid workflow file (*.xml)
+    required: true
+runs: 
+  using: 'docker'
+  image: 'docker://sitapati/zbctl'
+  args:
+  - deploy
+  - ${{inputs.workflowPath}}
+branding:
+  color: blue
